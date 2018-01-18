@@ -1,15 +1,17 @@
-for(let index = 0; index < 101; index++) {
-const isFizz = index % 3 === 0;
-const isBuzz = index % 5 === 0;
-const isFizzBuzz = (isFizz && isBuzz);
+/**
+ * Chris Samuel | chris@kayode.me
+ */
+//Building Algorithms using Typescript
+// Arrays
 
-let result;
 
-isFizz && isBuzz ? 'FizzBuzz'
-      : isFizz
-        ? 'Fizz'
-        : isBuzz
-          ? 'Buzz'
-          : index;
- console.log(result);
-}
+const sample_array = ['SoulTaker','naruto','Evangelion', 'Anemome,','zawawa'];
+
+sample_array.sort();
+sample_array.forEach(result => console.log(result));
+
+// Anemome,
+// Evangelion
+// SoulTaker
+// naruto
+// zawawa
