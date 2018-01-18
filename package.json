@@ -1,0 +1,23 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "description": "a simple folder test my code in typescript ",
+  "main": "index.js",
+  "scripts": {
+    "start" : "node index.js",
+    "dev": "echo 'run dev' & npm start",
+    "test": "npm start ",
+    "tsc": "tsc",
+    "nodemon": "./node_modules/nodemon/bin/nodemon.js --config nodemon.json --exec npm run dev "
+  },
+  "author": "Chris Samuel",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2",
+    "typescript": "^2.6.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.14.11"
+  },
+  "keywords": []
+}
