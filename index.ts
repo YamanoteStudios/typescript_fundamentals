@@ -13,3 +13,7 @@
  * - 'silent' and 'listen' are anagrams
  * - 'foo' and 'bar' 
  */
+
+ export function areAnagrams(s1:string,s2:string) {
+
+ }
