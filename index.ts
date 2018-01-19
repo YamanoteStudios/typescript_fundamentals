@@ -14,6 +14,15 @@
  * - 'foo' and 'bar' 
  */
 
- export function areAnagrams(s1:string,s2:string) {
+ 
+
+ export function areAnagrams(s1:string,s2:string): boolean {
+     s1 = s1.split('').sort().join('');
+     s2 = s2.split('').sort().join('');
+        // console.log(s1);
+        // console.log(s2);
+        return s1 === s2 
 
  }
+const evaluatedMatter = areAnagrams('earth','heart');
+console.log(evaluatedMatter);

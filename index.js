@@ -12,5 +12,12 @@
  * - 'foo' and 'bar'
  */
 function areAnagrams(s1, s2) {
+    s1 = s1.split('').sort().join('');
+    s2 = s2.split('').sort().join('');
+    // console.log(s1);
+    // console.log(s2);
+    return s1 === s2;
 }
 exports.areAnagrams = areAnagrams;
+var evaluatedMatter = areAnagrams('earth', 'heart');
+console.log(evaluatedMatter);
