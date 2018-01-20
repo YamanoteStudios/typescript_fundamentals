@@ -5,31 +5,55 @@
 // Arrays
   
 
-
-/**
- * A word is an anagram of another if you can rearrange its characters to produce the second word.
- * Given two strings determines if they are anagrams of each other.
- * - 'earth' and 'heart' are anagrams
- * - 'silent' and 'listen' are anagrams
- * - 'foo' and 'bar' 
+  /**
+ * @module Palindrome solvers
+ * A palindrome is a string that reads the same forward and backward, for example,
+ * - radar, toot, madam.
  */
 
- 
-function areAnagrams(s1: string, s2: string): boolean {
-    const charCount = new Map<string, number>();
-    for (const char of s1.split('')) {
-      charCount.set(char, (charCount.get(char) || 0) + 1);
-    }
-    for (const char of s2.split('')) {
-      if (!charCount.has(char)) return false;
-      charCount.set(char, charCount.get(char) - 1);
-    }
-    return Array.from(charCount.values()).every(val => val === 0);
-  }
-  
-  
-  console.log("listen and silent:")
-  console.log(areAnagrams("listen", "silent"))
-  
-  console.log("foo and bar:")
-  console.log(areAnagrams("foo", "bar"))
+/**
+ * Returns true if the string is a palindrome
+ */
+function isPalindrome(str: string): boolean {
+  const reversed = str.split('').reverse().join('');
+  return reversed === str;
+}
+
+/** 
+ * Returns true if ANY permutation of the string is a palindrome
+ * civic true
+ * vicic true
+ * toot true
+ * toto true
+ * civil false
+ */
+function isAnyPermutationPalindrome(str: string): boolean {
+  const unmatched = new Set<string>();
+  str.split('').forEach(char => {
+    if (unmatched.has(char)) unmatched.delete(char);
+    else unmatched.add(char);
+  });
+  return unmatched.size <= 1;
+}
+
+// Output
+console.log("isPalindrome: ", "")
+console.log("civic: ", isPalindrome("civic"))
+console.log("vicic: ", isPalindrome("vicic"))
+console.log("toot: ", isPalindrome("toot"))
+console.log("to: ", isPalindrome("to"))
+
+
+console.log("isAnyPermutationPalindrome: ", "")
+console.log("civic: ", isAnyPermutationPalindrome("civic"))
+console.log("vicic: ", isAnyPermutationPalindrome("vicic"))
+console.log("toot: ", isAnyPermutationPalindrome("toot"))
+console.log("to: ", isAnyPermutationPalindrome("to"))
+
+
+
+
+
+
+
+
