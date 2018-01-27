@@ -19,9 +19,17 @@ export function mergeSort(array: number[]): number[] {
     console.log(array);
     return array;
   }
+  
 //we first find the middle index by dividing the array length by two.
 const middle = Math.floor(array.length / 2 );
-console.log(middle);
+// console.log(middle);
+
+// We use two variables to track the index into the left and the right segments
+const left = array.slice(0, middle);
+const right = array.slice(middle); 
+
+return merge(mergeSort(left), mergeSort(right))
+
 }
 
 
