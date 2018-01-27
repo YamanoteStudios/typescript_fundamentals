@@ -1,46 +1,25 @@
 /**
- * Chris Samuel | chris@kayode.me
+ * Chris Samuel Jr
+ * chris@kayode.me
+ *
+ * github: Alayode
+ *
+ * merge-sort-ts
  */
-//Building Algorithms using Typescript
-// Arrays
+"use strict";
 /**
-* @module Palindrome solvers
-* A palindrome is a string that reads the same forward and backward, for example,
-* - radar, toot, madam.
+* merge sort is a recursive algorithm for sorting that decompose laerge problem of sorting an array.
+* into subproblems that are each a  step closer to being solved.
 */
-/**
- * Returns true if the string is a palindrome
- */
-function isPalindrome(str) {
-    var reversed = str.split('').reverse().join('');
-    return reversed === str;
+function mergeSort(array) {
+    if (array.length <= 1) {
+        console.log(array);
+        return array;
+    }
+    //we first find the middle index by dividing the array length by two.
+    var middle = Math.floor(array.length / 2);
+    console.log(middle);
 }
-/**
- * Returns true if ANY permutation of the string is a palindrome
- * civic true
- * vicic true
- * toot true
- * toto true
- * civil false
- */
-function isAnyPermutationPalindrome(str) {
-    var unmatched = new Set();
-    str.split('').forEach(function (char) {
-        if (unmatched.has(char))
-            unmatched["delete"](char);
-        else
-            unmatched.add(char);
-    });
-    return unmatched.size <= 1;
-}
-// Output
-console.log("isPalindrome: ", "");
-console.log("civic: ", isPalindrome("civic"));
-console.log("vicic: ", isPalindrome("vicic"));
-console.log("toot: ", isPalindrome("toot"));
-console.log("to: ", isPalindrome("to"));
-console.log("isAnyPermutationPalindrome: ", "");
-console.log("civic: ", isAnyPermutationPalindrome("civic"));
-console.log("vicic: ", isAnyPermutationPalindrome("vicic"));
-console.log("toot: ", isAnyPermutationPalindrome("toot"));
-console.log("to: ", isAnyPermutationPalindrome("to"));
+exports.mergeSort = mergeSort;
+var array = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0]; // a single element in the array is already sorted.
+mergeSort(array); // returns 5

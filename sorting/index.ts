@@ -3,17 +3,25 @@
  * chris@kayode.me
  * 
  * github: Alayode
+ * 
+ * merge-sort-ts
  */
 
 
  /**
- * Sorts an array using insertion sort
+ * merge sort is a recursive algorithm for sorting that decompose laerge problem of sorting an array.
+ * into subproblems that are each a  step closer to being solved.
  */
-  function insertionSort(){}
-  
-  const unsortedArray = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
-  
-  console.log(insertionSort(unsortedArray))
-  
 
-  
+
+  export function mergeSort(array: number[]): number[] {
+    if(array.length <= 1) {
+      console.log(array);
+      return array;
+    }  
+  }
+
+
+
+
+  const array = [1]; // a single element in the array is already sorted.
