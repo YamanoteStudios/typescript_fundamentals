@@ -1,68 +1,35 @@
-/**
- * Chris Samuel Jr
- * chris@kayode.me
- * 
- * github: Alayode
- * 
- * merge-sort-ts
- */
 
+/***
+ Returns the first repeated item from an array if any 
+@throws {Error} if there is no item repetition
+*/
 
- /**
- * merge sort is a recursive algorithm for sorting that decompose laerge problem of sorting an array.
- * into subproblems that are each a  step closer to being solved.
- */
-
-
-export function mergeSort(array: number[]): number[] {
-  if(array.length <= 1) {
-    // console.log(array);
-    return array;
-  }
-
-//we first find the middle index by dividing the array length by two.
-const middle = Math.floor(array.length / 2 );
-// console.log(middle);
-
-// We use two variables to track the index into the left and the right segments
-const left = array.slice(0, middle);
-const right = array.slice(middle); 
-
-return merge(mergeSort(left), mergeSort(right))
-
-}
-
-/** merge (conquer) step of MergeSort */
-
-function merge(left: number[], right: number[]): number[] {
-const array: number[] = [];
-let lIndex = 0;
-let rIndex = 0;
-while(lIndex + rIndex <left.length + right.length) {
-  // console.log(left[lIndex]);
-  // console.log(right[rIndex]);
-   const lItem = left[lIndex];
-   const rItem = right[rIndex];
-    if(lItem == null) {
-      array.push(rItem); rIndex++;
-    }
-    else if (rItem == null) {
-      array.push(lItem); lIndex++;
-    }
-    else if (lItem < rItem) {
-      array.push(lItem); lIndex++;
-    }
-    else {
-      array.push(rItem); rIndex++;
+function repeatedItemLoops<T>(array: T[]): T {
+  for (let i = 0; i < array.length; i++) {
+    for (let j = i + 1; j < array.length; j++) {
+      if (array[i] === array[j]) return array[i];
     }
   }
- return array;
+  throw new Error('No item repetition');
+}
+​
+
+
+
+function repeatedItem<T>(array: T[]): T {
+  const set = new Set<T>();
+  for (const item of array) {
+    if (set.has(item)) return item;
+    else set.add(item);
+  }
+  // throw new Error('No item repetition');
+  // converted for plunker output
+  // return Error('No item repetition');
+  console.log('No item repetition');
 }
 
+const itemRepetition = [1, 3, 5, 9, 1]
+const noItemRepetition = [1, 3, 5, 9]
 
-const unsortedArray = [10,9,8,7,6,5,4,3,2,1,0]; // a single element in the array is already sorted.
-
-mergeSort(unsortedArray); // returns 5
-
-
-console.log(mergeSort(unsortedArray))
+console.log(repeatedItem(itemRepetition));
+console.log(repeatedItem(noItemRepetition));
